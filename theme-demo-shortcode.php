@@ -129,11 +129,18 @@ function theme_demo_shortcode_sanitize($input)
 
 function theme_demo_shortcode($atts, $content = null, $tag = '')
 {
+    $atts = shortcode_atts(array(
+        'lang' => 'en',
+    ), $atts, $tag);
+
     $category = str_replace('theme_demo_', '', $tag);
     $fields = get_option('theme_demo_shortcode_fields_' . $category);
     if (empty($fields)) {
         return '<p>No themes available for ' . ucfirst($category) . '.</p>';
     }
+
+    $select_demo_label = $atts['lang'] === 'ar' ? 'اختيار القالب' : 'Select demo';
+    $live_show_label = $atts['lang'] === 'ar' ? 'عرض' : 'Live show';
 
     $output = '<div class="container">';
     foreach ($fields as $field) {
@@ -141,8 +148,8 @@ function theme_demo_shortcode($atts, $content = null, $tag = '')
             $output .= '<div class="column">';
             $output .= '<img src="' . esc_url($field['image']) . '" alt="Demo Image" />';
             $output .= '<div class="button-container">';
-            $output .= '<a href="https://webfixup.com/clients/order.php?step=1&amp;productGroup=4"><button id="' . esc_attr($field['button_id']) . '" class="user_selection_chosen">Select demo</button></a>';
-            $output .= '<a href="' . esc_url($field['link']) . '" target="_blank" rel="noopener"><button>Live show</button></a>';
+            $output .= '<a href="https://webfixup.com/clients/order.php?step=1&amp;productGroup=4"><button id="' . esc_attr($field['button_id']) . '" class="user_selection_chosen">' . $select_demo_label . '</button></a>';
+            $output .= '<a href="' . esc_url($field['link']) . '" target="_blank" rel="noopener"><button>' . $live_show_label . '</button></a>';
             $output .= '</div>';
             $output .= '</div>';
         }
