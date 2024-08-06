@@ -1,9 +1,9 @@
 <?php
 /*
 Plugin Name: Theme Demo Shortcode
-Description: A plugin to generate shortcodes for displaying themes with images and demo links.
+Description: A plugin to generate shortcodes for displaying themes with images and demo links for both Themes in Arabic and English pages.
 Version: 1.0
-Author: Your Name
+Author: mzughbor
 */
 
 function theme_demo_shortcode_enqueue_scripts($hook)
