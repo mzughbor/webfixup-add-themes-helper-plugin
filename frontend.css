@@ -1,0 +1,25 @@
+.theme-demo-shortcode {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.theme-demo-item {
+    margin: 10px;
+    text-align: center;
+}
+
+.theme-demo-item img {
+    max-width: 100%;
+    height: auto;
+}
+
+.theme-demo-item a {
+    display: block;
+    margin-top: 10px;
+    color: #0073aa;
+    text-decoration: none;
+}
+
+.theme-demo-item a:hover {
+    color: #005177;
+}
