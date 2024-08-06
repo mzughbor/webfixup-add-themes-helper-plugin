@@ -1,25 +1,73 @@
-.theme-demo-shortcode {
+/* frontend.css */
+.container {
     display: flex;
     flex-wrap: wrap;
+    margin: 0 auto;
+    width: 100%; /* Adjust width as needed */
 }
 
-.theme-demo-item {
-    margin: 10px;
+.column {
+    flex: 1 0 25%; /* Set flex basis to 33.33% for equal width columns */
+    padding: 10px;
     text-align: center;
 }
 
-.theme-demo-item img {
-    max-width: 100%;
-    height: auto;
+.column img {
+    width: 100%; /* Ensure images fill column width */
+    margin-bottom: 10px;
 }
 
-.theme-demo-item a {
-    display: block;
-    margin-top: 10px;
-    color: #0073aa;
-    text-decoration: none;
+.button-container {
+    display: flex;
+    justify-content: center;
 }
 
-.theme-demo-item a:hover {
-    color: #005177;
+.button-container a button {
+    margin: 5px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 25px;
+    background-color: #ff780b;
+    color: white;
+    font-weight: 400;
+    cursor: pointer;
+    font-family: Poppins, sans-serif;
+    font-size: 15px;
+}
+
+.button-container a:first-child button {
+    background-color: #0A2540;
+}
+
+.button-container a:first-child button:hover {
+    background-color: #10d0a1;
+    color: black;
+}
+
+.button-container a button:hover {
+    background-color: #e968c6;
+    color: black;
+}
+
+/* Media Queries for Responsive Behavior (Adjust breakpoints as needed) */
+
+@media screen and (max-width: 1200px) {
+    .column {
+        flex: 1 0 33%; /* Adjust width for smaller screens */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .column {
+        flex: 1 0 50%; /* Adjust width for smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .column {
+        flex: 1 0 100%; /* Stack columns on very small screens */
+    }
+    .button-container button {
+        font-size: 12px;
+    }
 }
