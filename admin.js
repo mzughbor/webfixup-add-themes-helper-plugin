@@ -24,7 +24,8 @@ jQuery(document).ready(function ($) {
       "[" +
       count +
       '][image]" /></td>' +
-      '<td><button type="button" class="remove-field">Remove</button></td>' +
+      //'<td><button type="button" class="remove-field">Remove</button></td>' +
+      //'<td><button type="button" class="remove-field">Remove</button></td>' +
       "</tr><tr>" +
       '<th scope="row"><label for="theme_demo_link_' +
       category +
@@ -57,10 +58,16 @@ jQuery(document).ready(function ($) {
     $("#theme-demo-fields-" + category).append(newField);
   });
 
+  // Remove field
   $(document).on("click", ".remove-field", function () {
-    $(this).closest("tr").next("tr").next("tr").next("tr").remove(); // Remove the <hr> row
-    $(this).closest("tr").next("tr").next("tr").remove(); // Remove the next 2 rows
-    $(this).closest("tr").next("tr").remove(); // Remove the next row
-    $(this).closest("tr").remove(); // Remove the current row
+    var $fieldSet = $(this)
+      .closest(".tab-content")
+      .find("tr")
+      .last()
+      .prevAll("tr")
+      .slice(0, 4);
+    if ($fieldSet.length > 0) {
+      $fieldSet.remove();
+    }
   });
 });
