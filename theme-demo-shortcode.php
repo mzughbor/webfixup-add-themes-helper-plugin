@@ -11,8 +11,9 @@ function theme_demo_shortcode_enqueue_scripts($hook)
     if ($hook != 'toplevel_page_theme_demo_shortcode') {
         return;
     }
-    wp_enqueue_script('theme-demo-shortcode-admin-js', plugin_dir_url(__FILE__) . 'admin.js', array('jquery'), '1.0', true);
-    wp_enqueue_style('theme-demo-shortcode-admin-css', plugin_dir_url(__FILE__) . 'admin.css', array(), '1.0');
+    $script_version = '1.2'; // Change this version number when you update the script
+    wp_enqueue_script('theme-demo-shortcode-admin-js', plugin_dir_url(__FILE__) . 'admin.js', array('jquery'), $script_version, true);
+    wp_enqueue_style('theme-demo-shortcode-admin-css', plugin_dir_url(__FILE__) . 'admin.css', array(), '1.3');
 }
 add_action('admin_enqueue_scripts', 'theme_demo_shortcode_enqueue_scripts');
 
@@ -56,7 +57,6 @@ function theme_demo_shortcode_options()
                                 <tr>
                                     <th scope="row"><label for="theme_demo_image_<?php echo $category . '_' . $index; ?>">Image URL <?php echo ($index + 1); ?></label></th>
                                     <td><input type="text" name="theme_demo_shortcode_fields_<?php echo $category; ?>[<?php echo $index; ?>][image]" value="<?php echo esc_attr($field['image']); ?>" /></td>
-                                    <td><button type="button" class="remove-field">Remove</button></td>
                                 </tr>
                                 <tr>
                                     <th scope="row"><label for="theme_demo_link_<?php echo $category . '_' . $index; ?>">Demo Link <?php echo ($index + 1); ?></label></th>
@@ -78,7 +78,6 @@ function theme_demo_shortcode_options()
                             <tr>
                                 <th scope="row"><label for="theme_demo_image_<?php echo $category; ?>_0">Image URL 1</label></th>
                                 <td><input type="text" name="theme_demo_shortcode_fields_<?php echo $category; ?>[0][image]" /></td>
-                                <td><button type="button" class="remove-field">Remove</button></td>
                             </tr>
                             <tr>
                                 <th scope="row"><label for="theme_demo_link_<?php echo $category; ?>_0">Demo Link 1</label></th>
@@ -97,7 +96,8 @@ function theme_demo_shortcode_options()
                         }
                         ?>
                     </table>
-                    <button type="button" class="add-field" data-category="<?php echo $category; ?>">Add Another</button>
+                    <button type="button" class="add-field" data-category="<?php echo $category; ?>">Add another <?php echo $category; ?> </button>
+                    <button type="button" class="remove-field">Remove latest <?php echo $category; ?> theme</button>
                 </div>
             <?php } ?>
             <?php submit_button(); ?>
