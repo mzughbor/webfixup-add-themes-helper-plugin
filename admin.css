@@ -11,3 +11,40 @@
 #add-field:hover {
     background: #006799;
 }
+
+.remove-field {
+    background-color: #d9534f; /* Red background */
+    color: white; /* White text color */
+    border: none; /* No border */
+    padding: 8px 12px; /* Padding for the button */
+    margin-top: 10px; /* Space above the button */
+    margin-bottom: 10px; /* Space below the button */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 14px; /* Font size */
+    text-align: center; /* Center text */
+    display: inline-block; /* Align with other inline elements */
+}
+  
+.remove-field:hover {
+    background-color: #e7251e; /* Darker red on hover */
+}
+  
+.add-field {
+    background-color: #64e867; /* Light blue-green background */
+    color: white; /* White text color */
+    border: none; /* No border */
+    padding: 8px 12px; /* Padding for the button */
+    margin-top: 10px; /* Space above the button */
+    margin-bottom: 10px; /* Space below the button */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 14px; /* Font size */
+    text-align: center; /* Center text */
+    display: inline-block; /* Align with other inline elements */
+}
+  
+.add-field:hover {
+    background-color: #31b0d5; /* Darker blue-green on hover */
+}
+  
