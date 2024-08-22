@@ -142,13 +142,20 @@ function theme_demo_shortcode($atts, $content = null, $tag = '')
     $select_demo_label = $atts['lang'] === 'ar' ? 'اختيار القالب' : 'Select demo';
     $live_show_label = $atts['lang'] === 'ar' ? 'عرض' : 'Live show';
 
+    // Determine the correct link based on the category
+    if ($category === 'e-commerce') {
+        $order_link = 'https://webfixup.com/clients/order.php?step=2&product=9&paymentTerm=12';
+    } else {
+        $order_link = 'https://webfixup.com/clients/order.php?step=2&product=7&paymentTerm=12';
+    }
+        
     $output = '<div class="container">';
     foreach ($fields as $field) {
         if (!empty($field['image']) && !empty($field['link']) && !empty($field['button_id'])) {
             $output .= '<div class="column">';
             $output .= '<img src="' . esc_url($field['image']) . '" alt="Demo Image" />';
             $output .= '<div class="button-container">';
-            $output .= '<a href="https://webfixup.com/clients/order.php?step=1&amp;productGroup=4"><button id="' . esc_attr($field['button_id']) . '" class="user_selection_chosen">' . $select_demo_label . '</button></a>';
+            $output .= '<a href="' . esc_url($order_link) . '"><button id="' . esc_attr($field['button_id']) . '" class="user_selection_chosen">' . $select_demo_label . '</button></a>';
             $output .= '<a href="' . esc_url($field['link']) . '" target="_blank" rel="noopener"><button>' . $live_show_label . '</button></a>';
             $output .= '</div>';
             $output .= '</div>';
